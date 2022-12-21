@@ -15,7 +15,6 @@ int main() {
     double r = 1, a, b, x0, e = pow(10,-6);
     bool flag = 1;
     int cnt = 0;
-    
     cin >> a >> b >> x0;
     if (f(a) * f(b) <= 0) {
         do {
