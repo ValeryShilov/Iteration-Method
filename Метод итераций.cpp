@@ -16,26 +16,23 @@ int main() {
     bool flag = 1;
     int cnt = 0;
     
-    cin >> a >> b;
-    for (int i = -10; i <= 10; i++) {
-        x0 = i;
-        if (f(a) * f(b) <= 0) {
-            do {
-                double x1 = fh(x0);
-                r = abs(x1 - x0);
-                x0 = x1;
-                if (abs(fh(x1)) >= 1) {
-                    flag = 0;
-                }
-                cnt++;
-            } while (r > e && flag);
-            if (flag == 0) cout << "Промежуток не удовлетворяет условиям метода" << endl;
-            else {
-                cout << "x = " << x0 << endl;
-                cout << "Количество итераций = " << cnt << endl;
+    cin >> a >> b >> x0;
+    if (f(a) * f(b) <= 0) {
+        do {
+            double x1 = fh(x0);
+            r = abs(x1 - x0);
+            x0 = x1;
+            if (abs(fh(x1)) >= 1) {
+                flag = 0;
             }
+            cnt++;
+        } while (r > e && flag);
+        if (flag == 0) cout << "Промежуток не удовлетворяет условиям метода" << endl;
+        else {
+            cout << "x = " << x0 << endl;
+            cout << "Количество итераций = " << cnt << endl;
         }
-        else cout << "На заданном отрезке корней нет" << endl;
     }
+    else cout << "На заданном отрезке корней нет2" << endl;
     return 0;
 }
