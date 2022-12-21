@@ -2,11 +2,13 @@
 #include <cmath>
 using namespace std;
 double f(double n) {
-    //return pow(n, 3) + 47 * n - 15;  //уравнение
-    return (15 - pow(n, 3)) / 47;
+    return pow(n, 3) + 47 * n - 15; //уравнение
+}
+double fh(double n) {
+    return (15 - pow(n, 3)) / 47; //преобразованное уравнение
 }
 double fp(double n) {
-    return 3 * pow(n, 2) + 47;      //производная
+    return 3 * pow(n, 2) + 47;   //производная
 }
 int main() {
     setlocale(LC_ALL, "RUS");
@@ -15,20 +17,22 @@ int main() {
     int cnt = 0;
     
     cin >> a >> b >> x0;
-
-    do {
-        double x1 = f(x0);
-        r = abs(x1 - x0);
-        x0 = x1;
-        if (abs(f(x1)) >= 1) {
-            flag = 0;
+    if (f(a) * f(b) <= 0) {
+        do {
+            double x1 = f(x0);
+            r = abs(x1 - x0);
+            x0 = x1;
+            if (abs(fh(x1)) >= 1) {
+                flag = 0;
+            }
+            cnt++;
+        } while (r > e && flag);
+        if (flag == 0) cout << "Промежуток не удовлетворяет условиям метода" << endl;
+        else {
+            cout << "x = " << x0 << endl;
+            cout << "Количество итераций = " << cnt << endl;
         }
-        cnt++;
-    } while (r > e && flag);
-    if (flag == 0) cout << "На заданном отрезке корней нет" << endl;
-    else {
-        cout << "x = " << x0 << endl;
-        cout << "Количество итераций = " << cnt << endl;
     }
+    else cout << "На заданном отрезке корней нет2" << endl;
     return 0;
 }
