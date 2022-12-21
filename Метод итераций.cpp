@@ -19,7 +19,7 @@ int main() {
     cin >> a >> b >> x0;
     if (f(a) * f(b) <= 0) {
         do {
-            double x1 = f(x0);
+            double x1 = fh(x0);
             r = abs(x1 - x0);
             x0 = x1;
             if (abs(fh(x1)) >= 1) {
